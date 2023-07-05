@@ -1,0 +1,233 @@
+@use "_variables" as variable;
+@use "_mixins" as mixin;
+
+// Fonts
+@import url('https://fonts.googleapis.com/css2?family=Rowdies:wght@400;700&family=Vollkorn:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: variable.$background-color;
+    font-family: 'Rowdies', cursive;
+    color: variable.$main-color;
+    font-size: 20px;
+    width: 100%;
+    
+    
+    
+}
+
+a:active, a:visited {
+    color: variable.$main-color;
+    text-decoration: none;
+}
+
+a:hover{
+    color: variable.$secondary-color;
+}
+
+nav {
+    text-transform: uppercase;
+    @include mixin.display(flex, center, center);
+    flex-direction: column;
+    margin: 0 3rem;
+    div {
+        width: 100%;
+        @include mixin.display(grid, center, center);
+        grid-template-columns: 1fr 4fr 1fr;
+        figure {
+            @include mixin.display(flex, center, center);
+            img {
+                width: 200px;
+                padding: 20px;
+            }
+        }
+        ul{
+            width: 100%;
+        }   
+    }
+    ul {
+        width: 100%;
+        @include mixin.display(flex, space-between, center);
+        li{
+            list-style-type: none;
+            padding-bottom: 20px;
+        }
+    }
+}
+
+#hero {
+    @include mixin.display(grid, center, center);
+    grid-template-columns: 1fr 2fr;
+    height: 550px;
+    h1{
+        padding: 0 5px 0 3rem;
+        @include mixin.font("'Rowdies', cursive;", 700, 3rem);
+        strong{
+            font-family:'Vollkorn', serif;
+            font-style: italic;
+        }
+    }
+    article {
+        position: relative;
+        height: 100%;
+        img:first-child{
+            position: absolute;
+            right: -150px;
+            height: 600px;
+            width: 100%;
+            z-index: -10;
+            
+        }
+        img:nth-child(2){
+            position: absolute;
+            bottom: -20px;
+            z-index: -9;
+            height: 350px;
+        }
+        img:nth-child(3){
+            position: absolute;
+            z-index: -8;
+            width: 500px;
+            bottom: -60px;
+            right: 80px;
+        }
+        img:nth-child(4){
+            position: absolute;
+            height: 150px;
+            left: 550px;
+            z-index: -7;
+        }
+    }
+}
+
+@media (max-width: 1399.98px) {
+    body{
+        font-size: 16px;
+        background-color: aquamarine;
+    }
+    #hero {
+        article {
+            img:first-child{
+                right: -80px;
+                height: 550px;
+                width: auto;
+            }
+            img:nth-child(2){
+                height: 300px;
+            }
+            img:nth-child(3){
+                width: 400px;
+                right: 10px;
+            }
+            img:nth-child(4){
+                left: 400px;
+            }
+        }
+    }
+}
+
+@media (max-width: 1199.98px) {
+    body{
+        background-color: rgba(252, 173, 252, 0.829);
+    }
+    #hero {
+        height: 450px;
+        article {
+            img:first-child{
+                top: 30px;
+                left: 10px;
+                height: 450px;
+                width: 900px;
+            }
+            img:nth-child(2){
+                height: 250px;
+                bottom: -10px;
+            }
+            img:nth-child(3){
+                width: 300px;
+                right: 10px;
+                bottom: -20px;
+            }
+            img:nth-child(4){
+                left: 350px;
+                height: 120px;
+            }
+            
+        }
+    }
+}
+
+@media (max-width: 767.98px) {
+    body{
+        background-color: rgba(174, 247, 155, 0.829);
+    }
+    #hero {
+        display: block;
+        height: 300px;
+        h1{
+            z-index: 10;
+        }
+        article {
+            img:first-child{
+                top: -60px;
+                left: 10px;
+                height: 450px;
+                width: 900px;
+            }
+            img:nth-child(2){
+                height: 250px;
+                bottom: -10px;
+                left: 3rem;
+            }
+            img:nth-child(3){
+                width: 300px;
+                right: 20px;
+                bottom: -20px;
+            }
+            img:nth-child(4){
+                left: 400px;
+                height: 120px;
+                top: -90px;
+            }
+        }
+    }
+}
+
+@media (max-width: 575.98px) {
+    body {
+        background-color: darksalmon;
+        font-size: 14px;
+    }
+    #hero{
+        height: 400px;
+        h1 {
+            font-size: 2.5rem;
+        }
+        article{
+            img:first-child{
+                top: -80px;
+                
+            }
+            img:nth-child(2){
+                height: 200px;
+                bottom: 120px;
+                left: 20px;
+            }
+            img:nth-child(3){
+                width: 250px;
+                right: 20px;
+                bottom: 100px;
+            }
+            img:nth-child(4){
+                left: 350px;
+                height: 120px;
+                top: -80px;
+            }
+        }
+    }
+}
