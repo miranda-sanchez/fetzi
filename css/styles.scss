@@ -16,7 +16,7 @@ body {
     color: variable.$main-color;
     font-size: 20px;
     width: 100%;
-    
+    overflow-x: hidden;
     
     
 }
@@ -39,6 +39,9 @@ nav {
         width: 100%;
         @include mixin.display(grid, center, center);
         grid-template-columns: 1fr 4fr 1fr;
+        #language{ 
+            padding: 0 5px;
+        }
         figure {
             @include mixin.display(flex, center, center);
             img {
@@ -48,14 +51,40 @@ nav {
         }
         ul{
             width: 100%;
+            @include mixin.display(flex, space-between, center);
+            li{
+                list-style-type: none;
+            }
         }   
     }
-    ul {
+    #menu {
+        position: sticky;
         width: 100%;
         @include mixin.display(flex, space-between, center);
         li{
             list-style-type: none;
             padding-bottom: 20px;
+            a {
+                position: relative;
+                text-decoration: none;
+                color: variable.$main-color;
+                padding: 0 5px;
+                &:after {
+                    position: absolute;
+                    content: "";
+                    background-color: variable.$secondary-color;
+                    height: 3px;
+                    width: 0;
+                    top: 1.8rem;
+                    left: 0;
+                    transition: 0.5s;
+                }
+                &:hover:after {
+                    width: 100%
+                }
+            }
+            
+
         }
     }
 }
@@ -64,18 +93,49 @@ nav {
     @include mixin.display(grid, center, center);
     grid-template-columns: 1fr 2fr;
     height: 550px;
-    h1{
-        padding: 0 5px 0 3rem;
-        @include mixin.font("'Rowdies', cursive;", 700, 3rem);
-        strong{
-            font-family:'Vollkorn', serif;
-            font-style: italic;
+    max-width: 1600px;
+    margin: 0 auto;
+    article:first-child {
+        h1{
+            padding: 0 5px 0 3rem;
+            @include mixin.font("'Rowdies', cursive;", 700, 3rem);
+            strong{
+                font-family:'Vollkorn', serif;
+                font-style: italic;
+            }
         }
+        button {
+            position: relative;
+            cursor: pointer;
+            background-color: transparent;
+            color: variable.$main-color;
+            font-weight: 700;
+            border: 2px solid variable.$main-color;
+            border-radius: 0.5rem;
+            padding: 1rem;
+            margin: 1rem 0 0 3rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2rem;
+            &::before {
+                position: absolute;
+                content:"";
+                inset: 0;
+                background-color: lighten(variable.$secondary-color, 10%);
+                transition: 0.5s ease-in-out;
+                z-index: -1;
+                clip-path: circle(0% at 50% 50%);
+            }
+            &:hover::before{
+                clip-path: circle(100% at 50% 50%);
+            }
+        }
+
     }
-    article {
+    article:nth-child(2) {
         position: relative;
         height: 100%;
         img:first-child{
+            overflow: hidden;
             position: absolute;
             right: -150px;
             height: 600px;
@@ -105,17 +165,38 @@ nav {
     }
 }
 
+#characteristics {
+    h2 {
+        width: 100%;
+        text-align: center;
+        padding-top: 6rem;
+        text-transform: uppercase;
+        color: transparent;
+        -webkit-text-stroke: 1px variable.$main-color;
+        font-size: 2rem;
+    }
+    article {
+        margin: auto;
+        padding: 1rem;
+        @include mixin.display(flex, center, center);
+        column-gap: 3rem;
+        text-align: center;
+        div {
+            max-width: 500px;
+        }
+    }
+}
+
 @media (max-width: 1399.98px) {
     body{
         font-size: 16px;
         background-color: aquamarine;
     }
     #hero {
-        article {
+        article:nth-child(2) {
             img:first-child{
                 right: -80px;
                 height: 550px;
-                width: auto;
             }
             img:nth-child(2){
                 height: 300px;
@@ -136,9 +217,11 @@ nav {
         background-color: rgba(252, 173, 252, 0.829);
     }
     #hero {
+        max-width: 1000px;
         height: 450px;
-        article {
+        article:nth-child(2) {
             img:first-child{
+                overflow: hidden;
                 top: 30px;
                 left: 10px;
                 height: 450px;
@@ -149,7 +232,7 @@ nav {
                 bottom: -10px;
             }
             img:nth-child(3){
-                width: 300px;
+                width: 280px;
                 right: 10px;
                 bottom: -20px;
             }
@@ -168,32 +251,35 @@ nav {
     }
     #hero {
         display: block;
-        height: 300px;
+        max-width: 600px;
         h1{
             z-index: 10;
         }
-        article {
+        article:nth-child(2) {
             img:first-child{
-                top: -60px;
+                top: -150px;
                 left: 10px;
-                height: 450px;
-                width: 900px;
             }
             img:nth-child(2){
-                height: 250px;
-                bottom: -10px;
+                height: 200px;
+                bottom: 200px;
                 left: 3rem;
             }
             img:nth-child(3){
-                width: 300px;
+                width: 250px;
                 right: 20px;
-                bottom: -20px;
+                bottom: 200px;
             }
             img:nth-child(4){
-                left: 400px;
+                left: 420px;
                 height: 120px;
-                top: -90px;
+                top: -160px;
             }
+        }
+    }
+    #characteristics {
+        article {
+            flex-direction: column;
         }
     }
 }
@@ -204,30 +290,26 @@ nav {
         font-size: 14px;
     }
     #hero{
-        height: 400px;
         h1 {
             font-size: 2.5rem;
         }
-        article{
-            img:first-child{
-                top: -80px;
-                
-            }
+        article:nth-child(2) {
             img:nth-child(2){
                 height: 200px;
-                bottom: 120px;
+                top: 50px;
                 left: 20px;
             }
             img:nth-child(3){
-                width: 250px;
-                right: 20px;
-                bottom: 100px;
+                height: 100px;
+                top: 150px;
+                right: 10px;
             }
             img:nth-child(4){
-                left: 350px;
-                height: 120px;
-                top: -80px;
+                top: -150px;
+                left: 300px;
+                
             }
         }
+        
     }
 }
