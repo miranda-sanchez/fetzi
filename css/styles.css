@@ -29,7 +29,7 @@ nav {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  margin: 0 3rem;
+  border-bottom: 1px solid #E69349;
 }
 nav div {
   width: 100%;
@@ -39,6 +39,7 @@ nav div {
   grid-template-columns: 1fr 4fr 1fr;
 }
 nav div #language {
+  margin: 0 3rem;
   padding: 0 5px;
 }
 nav div figure {
@@ -53,11 +54,13 @@ nav div figure img {
 nav div ul {
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: right;
   align-items: center;
 }
 nav div ul li {
   list-style-type: none;
+  margin: 0 3rem;
+  padding: 0 5px;
 }
 nav #menu {
   position: sticky;
@@ -67,6 +70,7 @@ nav #menu {
   align-items: center;
 }
 nav #menu li {
+  margin: 0 3rem;
   list-style-type: none;
   padding-bottom: 20px;
 }
@@ -169,9 +173,9 @@ nav #menu li a:hover:after {
 }
 
 #characteristics h2 {
-  width: 100%;
+  position: relative;
   text-align: center;
-  padding-top: 6rem;
+  margin: 6rem 0 2rem 0;
   text-transform: uppercase;
   color: transparent;
   -webkit-text-stroke: 1px #314F2F;
@@ -186,6 +190,7 @@ nav #menu li a:hover:after {
   -moz-column-gap: 3rem;
        column-gap: 3rem;
   text-align: center;
+  font-family: "Vollkorn", serif;
 }
 #characteristics article div {
   max-width: 500px;
