@@ -5,6 +5,10 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background-color: #F5F0DC;
   font-family: "Rowdies", cursive;
@@ -195,18 +199,28 @@ nav #menu li a:hover:after {
 #characteristics article div {
   max-width: 500px;
 }
+#characteristics article div img {
+  height: 150px;
+}
 
 .wrapper, .carousel {
   white-space: nowrap;
   cursor: pointer;
   font-size: 0;
   overflow: hidden;
+  scroll-behavior: smooth;
 }
 
 #slider {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 4rem 0;
+  padding: 15rem 0;
+  background-image: url("/img/background-lines.PNG");
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 #slider .wrapper {
   max-width: 1200px;
@@ -224,6 +238,10 @@ nav #menu li a:hover:after {
 #slider .wrapper .carousel img:first-child {
   margin-left: 0;
 }
+#slider .wrapper .dragging {
+  scroll-behavior: auto;
+  cursor: grab;
+}
 #slider .wrapper i {
   position: absolute;
   background-color: #ecae76;
@@ -234,11 +252,13 @@ nav #menu li a:hover:after {
   cursor: pointer;
   font-size: 1.2rem;
   text-align: center;
+  border: 1px solid #314F2F;
   border-radius: 50%;
   top: 50%;
 }
 #slider .wrapper i:first-child {
   left: 0;
+  display: none;
 }
 #slider .wrapper i:last-child {
   right: 0;
@@ -247,7 +267,6 @@ nav #menu li a:hover:after {
 @media (max-width: 1399.98px) {
   body {
     font-size: 16px;
-    background-color: aquamarine;
   }
   #hero article:nth-child(2) img:first-child {
     right: -80px;
@@ -265,9 +284,6 @@ nav #menu li a:hover:after {
   }
 }
 @media (max-width: 1199.98px) {
-  body {
-    background-color: rgba(252, 173, 252, 0.829);
-  }
   #hero {
     max-width: 1000px;
     height: 450px;
@@ -292,6 +308,9 @@ nav #menu li a:hover:after {
     left: 350px;
     height: 120px;
   }
+  #slider {
+    padding: 10rem 0;
+  }
   #slider .wrapper {
     max-width: 900px;
   }
@@ -300,9 +319,6 @@ nav #menu li a:hover:after {
   }
 }
 @media (max-width: 767.98px) {
-  body {
-    background-color: rgba(174, 247, 155, 0.829);
-  }
   #hero {
     display: block;
     max-width: 600px;
@@ -341,7 +357,6 @@ nav #menu li a:hover:after {
 }
 @media (max-width: 575.98px) {
   body {
-    background-color: darksalmon;
     font-size: 14px;
   }
   #hero h1 {
@@ -360,5 +375,8 @@ nav #menu li a:hover:after {
   #hero article:nth-child(2) img:nth-child(4) {
     top: -150px;
     left: 300px;
+  }
+  #slider {
+    padding: 8rem 0;
   }
 }/*# sourceMappingURL=styles.css.map */

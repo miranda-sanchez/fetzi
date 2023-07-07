@@ -10,6 +10,10 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     background-color: variable.$background-color;
     font-family: 'Rowdies', cursive;
@@ -188,6 +192,9 @@ nav {
         font-family:'Vollkorn', serif;;
         div {
             max-width: 500px;
+            img{
+                height: 150px;
+            }
         }
     }
 }
@@ -196,25 +203,37 @@ nav {
     white-space: nowrap;
     cursor: pointer;
     font-size: 0;
-    overflow: hidden
+    overflow: hidden;
+    scroll-behavior: smooth;
 }
 
 #slider {
     @include mixin.display (flex, center, center);
+    margin: 4rem 0;
+    padding: 15rem 0;
+    background-image: url("/img/background-lines.PNG");
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
     .wrapper{
         max-width: 1200px;
         position: relative;
         flex-direction: column;
         padding: 1.5rem;
-        
-        .carousel img {
-            height: 340px;
-            object-fit: cover;
-            margin-left: 14px;
-            width: calc(100% / 3);
-            &:first-child{
-                margin-left: 0;
+        .carousel {
+            img {
+                height: 340px;
+                object-fit: cover;
+                margin-left: 14px;
+                width: calc(100% / 3);
+                &:first-child{
+                    margin-left: 0;
+                }
             }
+        }   
+        .dragging {
+            scroll-behavior: auto;
+            cursor: grab;
         }
         i {
             position: absolute;
@@ -226,13 +245,16 @@ nav {
             cursor: pointer;
             font-size: 1.2rem;
             text-align: center;
+            border: 1px solid variable.$main-color;
             border-radius: 50%;
             top: 50%;
             &:first-child {
                 left: 0;
+                display: none;
             }
             &:last-child {
                 right: 0;
+
             }
         }
     }
@@ -243,7 +265,6 @@ nav {
 @media (max-width: 1399.98px) {
     body{
         font-size: 16px;
-        background-color: aquamarine;
     }
     #hero {
         article:nth-child(2) {
@@ -266,9 +287,6 @@ nav {
 }
 
 @media (max-width: 1199.98px) {
-    body{
-        background-color: rgba(252, 173, 252, 0.829);
-    }
     #hero {
         max-width: 1000px;
         height: 450px;
@@ -296,18 +314,18 @@ nav {
             
         }
     }
-    #slider .wrapper {
-        max-width: 900px;
-        .carousel img {
-        width: calc(100%/2)
+    #slider {
+        padding: 10rem 0;
+        .wrapper {
+            max-width: 900px;
+            .carousel img {
+            width: calc(100%/2)
+            }
         }
     }
 }
 
 @media (max-width: 767.98px) {
-    body{
-        background-color: rgba(174, 247, 155, 0.829);
-    }
     #hero {
         display: block;
         max-width: 600px;
@@ -352,7 +370,6 @@ nav {
 
 @media (max-width: 575.98px) {
     body {
-        background-color: darksalmon;
         font-size: 14px;
     }
     #hero{
@@ -377,5 +394,8 @@ nav {
             }
         }
         
+    }
+    #slider {
+        padding: 8rem 0;
     }
 }
