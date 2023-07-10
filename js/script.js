@@ -1,3 +1,4 @@
+// SLIDER
 const carousel = document.querySelector(".carousel");
 const firstImg = carousel.querySelectorAll("img")[0];
 const arrows = document.querySelectorAll(".wrapper i");
