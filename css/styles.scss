@@ -261,9 +261,6 @@ footer {
     border-top: 2px solid variable.$secondary-color;
     margin-top: 3rem;
     @include mixin.display(flex, space-around, center);
-    #menu, #socialmedia {
-        
-    }
     li {
         list-style-type: none;
         padding: 0.5rem;
