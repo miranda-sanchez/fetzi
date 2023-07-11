@@ -40,6 +40,9 @@ header {
         img {
             width: 7rem; 
         }
+    }
+    .mobile-nav-toggle {
+        display: none;
     }    
     nav {
         text-transform: uppercase;
@@ -90,8 +93,6 @@ header {
         }
     }
 }
-
-
 
 #hero {
     @include mixin.display(grid, center, center);
@@ -259,13 +260,16 @@ header {
 footer {
     border-top: 2px solid variable.$secondary-color;
     margin-top: 3rem;
-    #menu {
-        padding: 20px;
-        li {
-            list-style-type: none;
-            a{
-                text-decoration: none;
-            }
+    @include mixin.display(flex, space-around, center);
+    #menu, #socialmedia {
+        
+    }
+    li {
+        list-style-type: none;
+        padding: 0.5rem;
+        a{
+            text-decoration: none;
+            
         }
     }
 }
@@ -336,17 +340,18 @@ footer {
 @media (max-width: 767.98px) {
     header{
         .mobile-nav-toggle {
+            display: block;
             position: absolute;
-            width: 2rem;
+            width: 1.5rem;
             aspect-ratio: 1;
             top: 2rem;
             right: 2rem;
             z-index: 9999;
             border: none;
             background-color: transparent;
-            background-image: url("./img/bars-solid.svg");
-            background-repeat: no-repeat;
             cursor: pointer;
+            background-image: url(../img/bars-solid.svg);
+            background-repeat: no-repeat;
         }
         nav{
             .primary-navigation{
@@ -356,6 +361,9 @@ footer {
                 position: fixed;
                 flex-direction: column;
                 padding: min(30vh, 10rem) 2rem;
+                transform: translateX(100%);
+                transition: 0.3s ease-in;
+                
                 li{
                     padding: 1rem;
                     width: 100%;
@@ -364,7 +372,15 @@ footer {
             }
             
         }
-    }    
+    }
+    
+    .primary-navigation[data-visible="true"] {
+        transform: translateX(0);
+    }
+
+    .mobile-nav-toggle[aria-expanded="true"] {
+        background-image: url(../img/x-solid.svg);
+    }
 
     #hero {
         display: block;

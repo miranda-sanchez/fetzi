@@ -1,3 +1,18 @@
+// BURGUER MENU (MOBILE)
+const primaryNav = document.querySelector(".primary-navigation");
+const navToggle = document.querySelector(".mobile-nav-toggle");
+
+navToggle.addEventListener("click", () => {
+  const visibility = primaryNav.getAttribute("data-visible");
+  primaryNav.setAttribute(
+    "data-visible",
+    visibility === "false" ? true : false
+  );
+  navToggle.setAttribute(
+    "aria-expanded",
+    visibility === "false" ? true : false
+  );
+});
 // SLIDER
 const carousel = document.querySelector(".carousel");
 const firstImg = carousel.querySelectorAll("img")[0];

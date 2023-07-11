@@ -38,6 +38,9 @@ header {
 header figure img {
   width: 7rem;
 }
+header .mobile-nav-toggle {
+  display: none;
+}
 header nav {
   text-transform: uppercase;
 }
@@ -253,14 +256,15 @@ header nav .primary-navigation li a:hover:after {
 footer {
   border-top: 2px solid #E69349;
   margin-top: 3rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
-footer #menu {
-  padding: 20px;
-}
-footer #menu li {
+footer li {
   list-style-type: none;
+  padding: 0.5rem;
 }
-footer #menu li a {
+footer li a {
   text-decoration: none;
 }
 
@@ -320,17 +324,18 @@ footer #menu li a {
 }
 @media (max-width: 767.98px) {
   header .mobile-nav-toggle {
+    display: block;
     position: absolute;
-    width: 2rem;
+    width: 1.5rem;
     aspect-ratio: 1;
     top: 2rem;
     right: 2rem;
     z-index: 9999;
     border: none;
     background-color: transparent;
-    background-image: url("./img/bars-solid.svg");
-    background-repeat: no-repeat;
     cursor: pointer;
+    background-image: url(../img/bars-solid.svg);
+    background-repeat: no-repeat;
   }
   header nav .primary-navigation {
     margin-top: 0;
@@ -339,11 +344,19 @@ footer #menu li a {
     position: fixed;
     flex-direction: column;
     padding: min(30vh, 10rem) 2rem;
+    transform: translateX(100%);
+    transition: 0.3s ease-in;
   }
   header nav .primary-navigation li {
     padding: 1rem;
     width: 100%;
     text-align: center;
+  }
+  .primary-navigation[data-visible=true] {
+    transform: translateX(0);
+  }
+  .mobile-nav-toggle[aria-expanded=true] {
+    background-image: url(../img/x-solid.svg);
   }
   #hero {
     display: block;
