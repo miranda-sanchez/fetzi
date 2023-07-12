@@ -27,6 +27,19 @@ a:hover {
   color: #E69349;
 }
 
+button {
+  cursor: pointer;
+  background-color: transparent;
+  color: #314F2F;
+  font-weight: 700;
+  border: 2px solid #314F2F;
+  border-radius: 0.5rem;
+  padding: 1rem 2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
+  margin-top: 2rem;
+}
+
 header {
   display: flex;
   justify-content: space-between;
@@ -97,8 +110,10 @@ header nav .primary-navigation li a:hover:after {
   max-width: 1600px;
   margin: 0 auto;
 }
+#hero article:first-child {
+  margin: 1rem 0 0 3rem;
+}
 #hero article:first-child h1 {
-  padding: 0 5px 0 3rem;
   font-family: "'Rowdies', cursive;";
   font-weight: 700;
   font-size: 3rem;
@@ -109,16 +124,6 @@ header nav .primary-navigation li a:hover:after {
 }
 #hero article:first-child button {
   position: relative;
-  cursor: pointer;
-  background-color: transparent;
-  color: #314F2F;
-  font-weight: 700;
-  border: 2px solid #314F2F;
-  border-radius: 0.5rem;
-  padding: 1rem;
-  margin: 1rem 0 0 3rem;
-  text-transform: uppercase;
-  letter-spacing: 0.2rem;
 }
 #hero article:first-child button::before {
   position: absolute;
@@ -251,6 +256,55 @@ header nav .primary-navigation li a:hover:after {
 }
 #slider .wrapper i:last-child {
   right: 0;
+}
+
+#products {
+  margin: 0 3rem;
+}
+#products h2, #products p {
+  width: 100%;
+  text-align: center;
+  text-transform: uppercase;
+  margin: 2rem 0;
+}
+#products .pro-container {
+  position: relative;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
+  -moz-column-gap: 1rem;
+       column-gap: 1rem;
+  row-gap: 2rem;
+}
+#products .pro-container .pro {
+  text-align: center;
+}
+#products .pro-container .pro img {
+  width: 450px;
+  height: 450px;
+  -o-object-fit: contain;
+     object-fit: contain;
+  padding: 2rem;
+  border-radius: 10px;
+  background-color: #314F2F;
+}
+#products .pro-container .pro img:hover {
+  background-color: #E69349;
+}
+#products .pro-container .pro .pro-description span {
+  font-family: "'Vollkorn', serif";
+  font-weight: 700;
+  font-size: 1rem;
+}
+#products .pro-container .pro .pro-cart {
+  margin-top: 1rem;
+}
+#products .pro-container .pro .pro-cart a {
+  text-decoration: none;
+}
+#products .pro-container .pro .pro-cart a:hover {
+  color: #314F2F;
 }
 
 footer {

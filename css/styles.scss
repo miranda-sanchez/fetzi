@@ -31,6 +31,20 @@ a:active, a:visited {
 a:hover{
     color: variable.$secondary-color;
 }
+
+button {
+    cursor: pointer;
+    background-color: transparent;
+    color: variable.$main-color;
+    font-weight: 700;
+    border: 2px solid variable.$main-color;
+    border-radius: 0.5rem;
+    padding: 1rem 2rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
+    margin-top: 2rem;
+}
+
 header {
     @include mixin.display(flex, space-between, center);
     padding: 0 10px;
@@ -101,8 +115,8 @@ header {
     max-width: 1600px;
     margin: 0 auto;
     article:first-child {
+        margin: 1rem 0 0 3rem;
         h1{
-            padding: 0 5px 0 3rem;
             @include mixin.font("'Rowdies', cursive;", 700, 3rem);
             strong{
                 font-family:'Vollkorn', serif;
@@ -111,16 +125,6 @@ header {
         }
         button {
             position: relative;
-            cursor: pointer;
-            background-color: transparent;
-            color: variable.$main-color;
-            font-weight: 700;
-            border: 2px solid variable.$main-color;
-            border-radius: 0.5rem;
-            padding: 1rem;
-            margin: 1rem 0 0 3rem;
-            text-transform: uppercase;
-            letter-spacing: 0.2rem;
             &::before {
                 position: absolute;
                 content:"";
@@ -255,6 +259,53 @@ header {
         }
     }
 
+}
+
+#products {
+    margin: 0 3rem;
+    h2, p{
+        width: 100%;
+        text-align: center;
+        text-transform: uppercase;
+        margin: 2rem 0;
+    }
+    .pro-container{
+        position: relative;
+        @include mixin.display(grid, center, center);
+        grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
+        column-gap: 1rem;
+        row-gap: 2rem;
+        .pro{
+            text-align: center;
+            img{
+                width: 450px;
+                height: 450px;
+                object-fit: contain;
+                padding: 2rem;
+                border-radius: 10px;
+                background-color: variable.$main-color;
+                &:hover{
+                    background-color: variable.$secondary-color;
+                }
+            }
+            .pro-description{
+                span {
+                    @include mixin.font("'Vollkorn', serif", 700, 1rem);
+                }
+            }
+            .pro-cart {
+                margin-top: 1rem;
+                a{
+                    text-decoration: none;
+                    &:hover{
+                        color: variable.$main-color;
+                    }
+                }
+            }
+            
+        }
+        
+    }
 }
 
 footer {
