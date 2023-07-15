@@ -427,7 +427,7 @@ footer li a {
 @media (max-width: 767.98px) {
   header .mobile-nav-toggle {
     display: block;
-    position: absolute;
+    position: fixed;
     height: 5px;
     aspect-ratio: 1;
     top: 10px;
