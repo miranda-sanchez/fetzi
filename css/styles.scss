@@ -433,7 +433,7 @@ footer {
     header{
         .mobile-nav-toggle {
             display: block;
-            position: absolute;
+            position: fixed;
             height: 5px;
             aspect-ratio: 1;
             top: 10px;
