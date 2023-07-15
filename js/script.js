@@ -97,3 +97,53 @@ carousel.addEventListener("touchmove", dragging);
 carousel.addEventListener("mouseup", dragStop);
 carousel.addEventListener("mouseleave", dragStop);
 carousel.addEventListener("touchend", dragStop);
+
+// PRODUCTS MENU
+// Get references to the DOM elements
+const btnAll = document.getElementById("btn-all");
+const btnLamps = document.getElementById("btn-lamps");
+const btnSofas = document.getElementById("btn-sofas");
+const btnArmchairs = document.getElementById("btn-armchairs");
+const btnTables = document.getElementById("btn-tables");
+
+const containers = {
+  lamps: document.getElementById("lamps-container"),
+  sofas: document.getElementById("sofas-container"),
+  armchairs: document.getElementById("armchairs-container"),
+  tables: document.getElementById("tables-container"),
+};
+
+// Function to hide all product containers
+function hideAllContainers() {
+  for (const container of Object.values(containers)) {
+    container.style.display = "none";
+  }
+}
+
+// Show all product containers
+btnAll.addEventListener("click", () => {
+  for (const container of Object.values(containers)) {
+    container.style.display = "grid";
+  }
+});
+
+// Handle button click events
+btnLamps.addEventListener("click", () => {
+  hideAllContainers();
+  containers.lamps.style.display = "grid";
+});
+
+btnSofas.addEventListener("click", () => {
+  hideAllContainers();
+  containers.sofas.style.display = "grid";
+});
+
+btnArmchairs.addEventListener("click", () => {
+  hideAllContainers();
+  containers.armchairs.style.display = "grid";
+});
+
+btnTables.addEventListener("click", () => {
+  hideAllContainers();
+  containers.tables.style.display = "grid";
+});

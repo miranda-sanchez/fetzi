@@ -263,19 +263,41 @@ header {
 
 #products {
     margin: 0 3rem;
+}
     h2, p{
         width: 100%;
         text-align: center;
         text-transform: uppercase;
         margin: 2rem 0;
     }
-    .pro-container{
-        position: relative;
+    h2 {
+        font-size: 2rem;
+    }
+    .menu-products{
+        button {
+            padding: 1rem;
+            margin-right: 1rem
+        }
+    }
+    .product-container{
         @include mixin.display(grid, center, center);
         grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
         column-gap: 1rem;
         row-gap: 2rem;
-        .pro{
+        margin: 2rem 0;
+        position: relative;
+        .product-section-title {
+            grid-column: 1 / -1;
+            z-index: -1;
+            position: sticky;
+            top: 0;
+            left: 0;
+            font-size: 5rem;
+            text-transform: lowercase;
+            opacity: 0.5;
+            color: variable.$secondary-color;
+          }
+        .product{
             text-align: center;
             img{
                 width: 450px;
@@ -288,13 +310,14 @@ header {
                     background-color: variable.$secondary-color;
                 }
             }
-            .pro-description{
+            .product-description{
                 span {
                     @include mixin.font("'Vollkorn', serif", 700, 1rem);
                 }
             }
-            .pro-cart {
+            .product-cart {
                 margin-top: 1rem;
+                background-color: lighten(variable.$secondary-color, 15%);
                 a{
                     text-decoration: none;
                     &:hover{
@@ -306,7 +329,28 @@ header {
         }
         
     }
+
+// CART.HTML
+.cart-title {
+    margin-left: 3rem;
+    text-transform: lowercase;
 }
+.product-cart {
+    margin: 1rem 3rem;
+}
+.total{
+    border-top: 1px solid variable.$secondary-color;
+    margin: 0 3rem;
+    h2{
+        text-transform: lowercase;
+        width: fit-content;
+    }
+}
+.btn-buy {
+    margin: 1rem 3rem;
+    justify-content: flex-end;
+}
+
 
 footer {
     border-top: 2px solid variable.$secondary-color;
@@ -390,10 +434,12 @@ footer {
         .mobile-nav-toggle {
             display: block;
             position: absolute;
-            width: 1.5rem;
+            height: 5px;
             aspect-ratio: 1;
-            top: 2rem;
-            right: 2rem;
+            top: 10px;
+            right: 1rem;
+            padding: 1rem;
+            margin: 15px;
             z-index: 9999;
             border: none;
             background-color: transparent;

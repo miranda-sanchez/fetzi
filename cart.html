@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="img/icon.PNG" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <title>Fetzi</title>
+  </head>
+  <body>
+    <header>
+      <figure>
+        <a href="index.html"><img src="img/logo.PNG" alt="Fetzi's logo" /></a>
+      </figure>
+      <button class="mobile-nav-toggle" aria-controls="primary-navigation" aria-expanded="false"><span class="sr-only">Menu</span></i></i></button>
+      <nav>
+        <ul id="primary-navigation" class="primary-navigation" data-visible="false">
+          <li><a href="index.html#products">Products</a></li>
+          <li><a href="index.html#slider">New arrivals</a></li>
+          <li><a href="#">About us</a></li>
+          <li><a href="#">Contact</a></li>
+          <li>
+            <a href=""><i class="fa-solid fa-cart-shopping"></i></a></i>
+          </li>
+          <li>
+            <a href=""><i class="fa-regular fa-heart"></i></a></i>
+          </li>
+          <li>
+            <a href=""><i class="fa-solid fa-user"></i></a></i>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+        <h1 class="cart-title">Your cart</h1>
+        <div class="product-cart">
+            <section class="product-container">
+                <article class="product">
+                    <figure>
+                        <img src="img/ceiling-lamp1.PNG" alt="70's ceiling lamp">
+                    </figure>
+                    <div class="product-description">
+                        <span class="cart-product-title">70's Ceiling Lamp</span>
+                        <h3 class="cart-product-price">USD 70</h3>
+                        <input type="number" value="1" class="cart-quantity">
+                    </div>
+                    <!-- Remove cart -->
+                    <button class="btn-cart-remove"><i class="fa-solid fa-trash"></i></button>
+                </article>
+            </section>
+        </div>
+        <!-- Total -->
+        <section class="total">
+            <h2>Total</h2>
+            <span class="total-price">USD 0</span>
+        </section>
+        <!-- Buy button -->
+        <button type="button" class="btn-buy">Buy now</button>
+    </main>
+    <footer>
+        <ul id="menu">
+          <li><a href="index.html#products">Products</a></li>
+            <li><a href="index.html#slider">New arrivals</a></li>
+            <li><a href="#">About us</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+        <ul id="social-media">
+          <li>
+            <a href="https://www.instagram.com/"
+              ><i class="fa-brands fa-instagram fa-xl"></i
+            ></a>
+          </li>
+          <li>
+            <a href="https://www.linkedin.com/in/miranda--sanchez/"
+              ><i class="fa-brands fa-linkedin-in fa-xl"></i
+            ></a>
+          </li>
+          <li>
+            <a href="https://github.com/miranda-sanchez"
+              ><i class="fa-brands fa-github fa-xl"></i
+            ></a>
+          </li>
+        </ul>
+      </footer>
+      <script
+        src="https://kit.fontawesome.com/7e4c1a2bd0.js"
+        crossorigin="anonymous"
+      ></script>
+      <script src="./js/script.js"></script>
+    </body>
+  </html>
