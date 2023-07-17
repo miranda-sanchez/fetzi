@@ -18,7 +18,7 @@ body {
   overflow-x: hidden;
 }
 
-a:active, a:visited {
+a:active, a:visited, a {
   color: #314F2F;
   text-decoration: none;
 }

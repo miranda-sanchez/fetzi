@@ -23,7 +23,7 @@ body {
     overflow-x: hidden;
 }
 
-a:active, a:visited {
+a:active, a:visited, a {
     color: variable.$main-color;
     text-decoration: none;
 }
