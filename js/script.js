@@ -15,7 +15,7 @@ navToggle.addEventListener("click", () => {
 });
 // SLIDER
 const carousel = document.querySelector(".carousel");
-const firstImg = carousel.querySelectorAll("img")[0];
+const firstImg = carousel.querySelector("img")[0];
 const arrows = document.querySelectorAll(".wrapper i");
 
 let isDragStart = false,
@@ -146,4 +146,145 @@ btnArmchairs.addEventListener("click", () => {
 btnTables.addEventListener("click", () => {
   hideAllContainers();
   containers.tables.style.display = "grid";
+});
+
+// CREATE PRODUCTS DYNAMICALLY
+// Create a JavaScript function to generate the product elements
+function createProductElement(imageSrc, altText, year, name, price) {
+  const productContainer = document.createElement("div");
+  productContainer.classList.add("product");
+
+  const figure = document.createElement("figure");
+  const link = document.createElement("a");
+  link.href = "#products";
+
+  const image = document.createElement("img");
+  image.src = imageSrc;
+  image.alt = altText;
+
+  link.appendChild(image);
+  figure.appendChild(link);
+  productContainer.appendChild(figure);
+
+  const description = document.createElement("div");
+  description.classList.add("product-description");
+
+  const spanYear = document.createElement("span");
+  spanYear.textContent = year;
+  description.appendChild(spanYear);
+
+  const heading = document.createElement("h3");
+  heading.textContent = name;
+  description.appendChild(heading);
+
+  const spanPrice = document.createElement("span");
+  spanPrice.classList.add("product-price");
+  spanPrice.textContent = price;
+  description.appendChild(spanPrice);
+
+  productContainer.appendChild(description);
+
+  const cartButton = document.createElement("button");
+  cartButton.classList.add("product-cart");
+  cartButton.textContent = "Add to cart";
+  const cartIcon = document.createElement("i");
+  cartIcon.classList.add("fa-solid", "fa-cart-shopping");
+  cartButton.appendChild(cartIcon);
+  productContainer.appendChild(cartButton);
+
+  return productContainer;
+}
+
+//Create an array of products containing the information for each product
+const lamps = [
+  {
+    image: "img/ceiling-lamp1.PNG",
+    alt: "70's black ceiling lamp",
+    year: "1972",
+    name: "Acrylic Ceiling Lamp",
+    price: "USD 70",
+  },
+  {
+    image: "img/ceiling-lamp2.PNG",
+    alt: "Grey ceiling lamp",
+    year: "1978",
+    name: "Greish Ceiling Lamp",
+    price: "USD 40",
+  },
+  // Add more lamp products here
+];
+
+const sofas = [
+  {
+    image: "img/sofa1.PNG",
+    alt: "Pink velvet sofa",
+    year: "1960",
+    name: "Pink Velvet Sofa",
+    price: "USD 350",
+  },
+  {
+    image: "img/sofa2.PNG",
+    alt: "Green leather sofa",
+    year: "1987",
+    name: "Green Leather Sofa",
+    price: "USD 300",
+  },
+  // Add more sofa products here
+];
+
+const armchairs = [
+  {
+    image: "img/chair1.PNG",
+    alt: "Green corduroy armchair",
+    year: "1988",
+    name: "Green Corduroy Armchair",
+    price: "USD 100",
+  },
+  {
+    image: "img/chair2.PNG",
+    alt: "Orange wooden armchair",
+    year: "1986",
+    name: "Orange Wooden Armchair",
+    price: "USD 150",
+  },
+  // Add more armchair products here
+];
+
+const coffeeTables = [
+  {
+    image: "img/coffee-table1.PNG",
+    alt: "Large oak coffee table",
+    year: "1990",
+    name: "Large Oak Coffee Table",
+    price: "USD 160",
+  },
+  {
+    image: "img/coffee-table2.PNG",
+    alt: "Wicker coffee table",
+    year: "1995",
+    name: "Wicker Coffee Table",
+    price: "USD 70",
+  },
+  // Add more coffee table products here
+];
+
+const allProducts = [
+  { containerId: "lamps-container", products: lamps },
+  { containerId: "sofas-container", products: sofas },
+  { containerId: "armchairs-container", products: armchairs },
+  { containerId: "tables-container", products: coffeeTables },
+];
+
+// Iterate over the allProducts array, find the corresponding container by ID, and populate it with the product elements
+allProducts.forEach(({ containerId, products }) => {
+  const container = document.getElementById(containerId);
+  if (!container) return;
+
+  const productSectionTitle = container.querySelector(".product-section-title");
+
+  products.forEach((product) => {
+    const { image, alt, year, name, price } = product;
+    const productElement = createProductElement(image, alt, year, name, price);
+    container.insertBefore(productElement, productSectionTitle.nextSibling);
+  });
 });

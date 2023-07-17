@@ -276,6 +276,7 @@ h2 {
 .menu-products button {
   padding: 1rem;
   margin-right: 1rem;
+  cursor: pointer;
 }
 
 .product-container {
@@ -336,7 +337,7 @@ h2 {
   text-transform: lowercase;
 }
 
-.product-cart {
+#cart-items {
   margin: 1rem 3rem;
 }
 
