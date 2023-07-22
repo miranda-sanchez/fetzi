@@ -15,7 +15,7 @@ navToggle.addEventListener("click", () => {
 });
 // SLIDER
 const carousel = document.querySelector(".carousel");
-const firstImg = carousel.querySelector("img")[0];
+const firstImg = carousel.querySelector("img");
 const arrows = document.querySelectorAll(".wrapper i");
 
 let isDragStart = false,
@@ -156,7 +156,7 @@ function createProductElement(imageSrc, altText, year, name, price) {
 
   const figure = document.createElement("figure");
   const link = document.createElement("a");
-  link.href = "#products";
+  //link.href = "#products";
 
   const image = document.createElement("img");
   image.src = imageSrc;
@@ -192,6 +192,13 @@ function createProductElement(imageSrc, altText, year, name, price) {
   cartButton.appendChild(cartIcon);
   productContainer.appendChild(cartButton);
 
+  // Add event listener to the "Add to cart" button
+  function addToCart(product) {
+    const cartItems = getCartItems();
+    cartItems.push(product);
+    saveCartItems(cartItems);
+    alert(`${product.name} added to cart!`);
+  }
   return productContainer;
 }
 
@@ -202,14 +209,42 @@ const lamps = [
     alt: "70's black ceiling lamp",
     year: "1972",
     name: "Acrylic Ceiling Lamp",
-    price: "USD 70",
+    price: "70",
   },
   {
     image: "img/ceiling-lamp2.PNG",
     alt: "Grey ceiling lamp",
     year: "1978",
     name: "Greish Ceiling Lamp",
-    price: "USD 40",
+    price: "40",
+  },
+  {
+    image: "img/ceiling-lamp3.PNG",
+    alt: "Orange ceiling lamp",
+    year: "1983",
+    name: "Orange Ceiling Lamp",
+    price: "50",
+  },
+  {
+    image: "img/ceiling-lamp4.PNG",
+    alt: "Green ceiling lamp",
+    year: "1985",
+    name: "Green Ceiling Lamp",
+    price: "65",
+  },
+  {
+    image: "img/ceiling-lamp5.PNG",
+    alt: "Orange acrylic ceiling lamp",
+    year: "1985",
+    name: "Orange Classic Ceiling Lamp",
+    price: "65",
+  },
+  {
+    image: "img/ceiling-lamp6.PNG",
+    alt: "Brown crystal ceiling lamp",
+    year: "1962",
+    name: "Brown Crystal Ceiling Lamp",
+    price: "80",
   },
   // Add more lamp products here
 ];
@@ -220,15 +255,30 @@ const sofas = [
     alt: "Pink velvet sofa",
     year: "1960",
     name: "Pink Velvet Sofa",
-    price: "USD 350",
+    price: "350",
   },
   {
     image: "img/sofa2.PNG",
     alt: "Green leather sofa",
     year: "1987",
     name: "Green Leather Sofa",
-    price: "USD 300",
+    price: "300",
   },
+  {
+    image: "img/sofa3.PNG",
+    alt: "Lime-green velvet sofa",
+    year: "1990",
+    name: "Lime-green Velvet Sofa",
+    price: "280",
+  },
+  {
+    image: "img/sofa4.PNG",
+    alt: "Shell-shaped velvet sofa",
+    year: "1990",
+    name: "Shell-shaped Velvet Sofa",
+    price: "200",
+  },
+
   // Add more sofa products here
 ];
 
@@ -238,14 +288,56 @@ const armchairs = [
     alt: "Green corduroy armchair",
     year: "1988",
     name: "Green Corduroy Armchair",
-    price: "USD 100",
+    price: "100",
   },
   {
     image: "img/chair2.PNG",
     alt: "Orange wooden armchair",
     year: "1986",
     name: "Orange Wooden Armchair",
-    price: "USD 150",
+    price: "150",
+  },
+  {
+    image: "img/chair3.PNG",
+    alt: "Burgundy wooden armchair",
+    year: "1980",
+    name: "Burgundy Wooden Armchair",
+    price: "250",
+  },
+  {
+    image: "img/chair4.PNG",
+    alt: "Plaid armchair",
+    year: "1979",
+    name: "Plaid Armchair",
+    price: "135",
+  },
+  {
+    image: "img/chair5.PNG",
+    alt: "80's neutral armchair",
+    year: "1986",
+    name: "80's Neutral Armchair",
+    price: "150",
+  },
+  {
+    image: "img/chair6.PNG",
+    alt: "80's orange armchair",
+    year: "1986",
+    name: "80's Orange Armchair",
+    price: "150",
+  },
+  {
+    image: "img/chair7.PNG",
+    alt: "80's red armchair",
+    year: "1986",
+    name: "80's Red Armchair",
+    price: "150",
+  },
+  {
+    image: "img/chair8.PNG",
+    alt: "80's yellow armchair",
+    year: "1986",
+    name: "80's Yellow Armchair",
+    price: "150",
   },
   // Add more armchair products here
 ];
@@ -256,15 +348,37 @@ const coffeeTables = [
     alt: "Large oak coffee table",
     year: "1990",
     name: "Large Oak Coffee Table",
-    price: "USD 160",
+    price: "160",
   },
   {
     image: "img/coffee-table2.PNG",
     alt: "Wicker coffee table",
     year: "1995",
     name: "Wicker Coffee Table",
-    price: "USD 70",
+    price: "70",
   },
+  {
+    image: "img/coffee-table4.PNG",
+    alt: "Pine coffee table",
+    year: "1972",
+    name: "Pine coffee table",
+    price: "100",
+  },
+  {
+    image: "img/coffee-table6.PNG",
+    alt: "Asymmetric maple coffee table",
+    year: "1981",
+    name: "Asymmetric Maple Coffee Table",
+    price: "60",
+  },
+  {
+    image: "img/coffee-table7.PNG",
+    alt: "Maple coffee table",
+    year: "1992",
+    name: "Maple Coffee Table",
+    price: "50",
+  },
+
   // Add more coffee table products here
 ];
 
