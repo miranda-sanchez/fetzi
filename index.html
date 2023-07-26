@@ -18,7 +18,7 @@
           <li><a href="#products">Products</a></li>
           <li><a href="#slider">New arrivals</a></li>
           <li><a href="#">About us</a></li>
-          <li><a href="#">Contact</a></li>
+          <li><a href="#contact">Contact</a></li>
           <li>
             <a href="cart.html"><i class="fa-solid fa-cart-shopping"></i></a></i>
           </li>
@@ -33,16 +33,13 @@
     </header>
     <main>
       <section id="hero">
-        <article>
-        <h1>The best wooden <strong>vintage furniture</strong> for you</h1>
-        <button>New arrivals</button>
-        </article>
-        <article>
-          <img src="img/green-form1.PNG" alt="green form" />
-          <img src="img/green-sofa.PNG" alt="Green sofa" />
-          <img src="img/coffee-table1.PNG" alt="Coffee table" />
-          <img src="img/ceiling-lamp5.PNG" alt="Ceiling lamp" />
-        </article>
+          <article>
+            <h1>The best wooden <strong>vintage furniture</strong> for you</h1>
+            <button>New arrivals</button>
+          </article>
+          <article>
+            <!--  Image added with SCSS -->
+          </article>
       </section>
       <section id="characteristics">
         <h2>Have you been introduced?</h2>
@@ -104,13 +101,35 @@
           <!-- Idem -->
         </article>
       </section>
+      <section id="contact">
+        <h2>Contact</h2>
+        <p>We value your interest in our furniture collection. If you have any questions or need assistance with choosing the perfect furniture pieces for your home or office, please don't hesitate to get in touch with us. Our dedicated team will get back to you promptly. Thank you for choosing us as your furniture partner!
+          </p>
+        <article>
+          <form>
+            <label for="name">Name:</label>
+            <input id="name" type="text" placeholder="Your name" required>
+          
+            <label for="email">Email:</label>
+            <input id="email" type="email" placeholder="Your email" required>
+          
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" rows="10" placeholder="Your message" required></textarea>
+          
+            <button type="submit">Submit</button>
+          </form>
+          <figure>
+            <img src="img/plant.PNG" alt="Interior plant">
+          </figure>
+          </article>
+      </section>
     </main>
     <footer>
       <ul id="menu">
         <li><a href="#">Products</a></li>
           <li><a href="#slider">New arrivals</a></li>
           <li><a href="#">About us</a></li>
-          <li><a href="#">Contact</a></li>
+          <li><a href="#contact">Contact</a></li>
       </ul>
       <ul id="social-media">
         <li>
