@@ -55,8 +55,6 @@ h1 {
     @include mixin.font("'Rowdies', cursive;", 700, 3.5rem);
     text-transform: initial;
     line-height: 3rem*1.2;
-
-    
 }
 
 h2 {
@@ -64,7 +62,7 @@ h2 {
     font-size: 2rem;
     text-align: center;
     line-height: 2rem*1.2;
-    margin: 3rem 0 1rem 0;
+    margin: 2rem 0 1rem 0;
 }
 
 h1, h2{
@@ -84,13 +82,14 @@ p{
 // DIFFERENT SECTIONS OF THE HTML FILE
 header {
     @include mixin.display(flex, space-between, center);
-    padding: 0 10px;
+    padding-right: 10px;
     width: 100%;
     height: 100px;
     figure{
             img {
                 width: 7rem; 
                 align-items: center;
+                margin-top: 15px;
             }
     }
     .mobile-nav-toggle {
@@ -109,7 +108,7 @@ header {
             border-radius: 10px 0 0 10px;
             @include mixin.display(flex, center, center);
             li{
-                margin-left: 10px;
+                //margin-left: 5px;
                 list-style-type: none;
                 padding: 0 15px;
                 a {
@@ -148,14 +147,16 @@ header {
 }
 
 #hero {
-    @include mixin.display(grid, space-between, center);
-    grid-template-columns: 1fr 2fr;
-    height: 600px;
-    max-width: 1600px;
-    margin: 0 auto;
-    width: 100%;
+    @include mixin.display(flex, center, center);
+    #hero-container{
+        @include mixin.display(grid, space-around, center);
+        grid-template-columns: 1fr 2fr;
+        height: 650px;
+        max-width: 1600px;
+        margin: 0 2rem;
+        width: 100%;}
+    
     article:first-child{
-        margin-left: 2rem;
         h1{
             strong{
                 font-family:'Vollkorn', serif;
@@ -327,10 +328,10 @@ header {
         min-width: 450px;
         max-width: 900px;
         form {
+            border: 2px solid variable.$main-color;
             @include mixin.display(flex, flex-end, center);
             flex-direction: column;
-            border-radius: 10px;
-            background-color: variable.$main-color;
+            border-radius: 0;
             padding: 1rem;
             min-width: 400px;
             margin: 1rem 0;
@@ -340,20 +341,27 @@ header {
                 margin: 1.5rem;
                 padding: 0.5rem;
                 background-color: transparent;
-                color: variable.$secondary-color;
+                color: variable.$main-color;
                 border: none;
-                border-bottom: 2px solid variable.$secondary-color;
+                border-bottom: 2px solid variable.$main-color;
+                border-radius: 0;
                 outline: none;
                 @include mixin.font("'Rowdies', cursive;", 400, 1.2rem);
             }
             textarea {
-                border: 2px solid variable.$secondary-color;
+                border: 2px solid variable.$main-color;
                 background-color: variable.$background-color;
                 resize: none;
                 color: variable.$main-color;
             }
+            input:focus{
+                border-bottom: 2px solid variable.$secondary-color;
+            }
+            textarea:focus {
+                border: 2px solid variable.$secondary-color;
+            }
             input::placeholder, textarea::placeholder {
-                color: variable.$background-color;
+                color: variable.$main-color;
             }
         }
         button {
@@ -381,38 +389,27 @@ footer {
         padding: 0.5rem;
         a{
             text-decoration: none;
-            
         }
     }
 }
 
-// CART.HTML
-#cart-items {
-    margin: 1rem 3rem;
-}
-.total{
-    border-top: 1px solid variable.$secondary-color;
-    margin: 0 3rem;
-    h2{
-        text-transform: lowercase;
-        width: fit-content;
-    }
-}
-.btn-buy {
-    margin: 1rem 3rem;
-    justify-content: flex-end;
-}
-
-
-
-
 @media (max-width: 1399.98px) {
     body{
-        font-size: 16px;
+        font-size: 18px;
+    }
+    #hero{
+            #hero-container {
+            height: 600px;
+        }
     }
 }
 
 @media (max-width: 1199.98px) {
+    #hero {
+        #hero-container {
+        //height: 500px;
+        }
+    }
     #slider {
         padding: 10rem 0;
         .wrapper {
@@ -469,31 +466,31 @@ footer {
     .mobile-nav-toggle[aria-expanded="true"] {
         background-image: url(../img/x-solid.svg);
     }
-
-    #hero {
-        grid-template-columns: 1fr;
-        h1{
-            max-width: 600px;
+    #hero{
+        #hero-container {
+            height: 620px;
+            grid-template-columns: 1fr;
+            h1{
+                max-width: 600px;
+            }
+            article:nth-child(2){
+                height: 450px;
+                transform: translateY(-15%);
+            }
+            
         }
-        article:nth-child(2){
-            height: 450px;
-            transform: translateY(-15%);
-        }
-        
     }
     #characteristics {
         article {
             flex-direction: column;
         }
     }
-
     #slider .wrapper {
         max-width: 400px;
         .carousel img {
         width: 100%;
         }
     }
-
     #products {
         .menu-products{
             flex-direction: column;
@@ -506,5 +503,3 @@ footer {
         }
     }
 }
-
-

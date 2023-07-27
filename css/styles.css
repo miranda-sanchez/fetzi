@@ -58,7 +58,7 @@ h2 {
   font-size: 2rem;
   text-align: center;
   line-height: 2.4rem;
-  margin: 3rem 0 1rem 0;
+  margin: 2rem 0 1rem 0;
 }
 
 h1, h2 {
@@ -78,13 +78,14 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 10px;
+  padding-right: 10px;
   width: 100%;
   height: 100px;
 }
 header figure img {
   width: 7rem;
   align-items: center;
+  margin-top: 15px;
 }
 header .mobile-nav-toggle {
   display: none;
@@ -106,7 +107,6 @@ header nav .primary-navigation {
   align-items: center;
 }
 header nav .primary-navigation li {
-  margin-left: 10px;
   list-style-type: none;
   padding: 0 15px;
 }
@@ -138,17 +138,19 @@ header nav .primary-navigation li a:hover:after {
   }
 }
 #hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#hero #hero-container {
   display: grid;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   grid-template-columns: 1fr 2fr;
-  height: 600px;
+  height: 650px;
   max-width: 1600px;
-  margin: 0 auto;
+  margin: 0 2rem;
   width: 100%;
-}
-#hero article:first-child {
-  margin-left: 2rem;
 }
 #hero article:first-child h1 strong {
   font-family: "Vollkorn", serif;
@@ -323,12 +325,12 @@ header nav .primary-navigation li a:hover:after {
   max-width: 900px;
 }
 #contact article form {
+  border: 2px solid #314F2F;
   display: flex;
   justify-content: flex-end;
   align-items: center;
   flex-direction: column;
-  border-radius: 10px;
-  background-color: #314F2F;
+  border-radius: 0;
   padding: 1rem;
   min-width: 400px;
   margin: 1rem 0;
@@ -339,25 +341,32 @@ header nav .primary-navigation li a:hover:after {
   margin: 1.5rem;
   padding: 0.5rem;
   background-color: transparent;
-  color: #E69349;
+  color: #314F2F;
   border: none;
-  border-bottom: 2px solid #E69349;
+  border-bottom: 2px solid #314F2F;
+  border-radius: 0;
   outline: none;
   font-family: "'Rowdies', cursive;";
   font-weight: 400;
   font-size: 1.2rem;
 }
 #contact article form textarea {
-  border: 2px solid #E69349;
+  border: 2px solid #314F2F;
   background-color: #F5F0DC;
   resize: none;
   color: #314F2F;
 }
+#contact article form input:focus {
+  border-bottom: 2px solid #E69349;
+}
+#contact article form textarea:focus {
+  border: 2px solid #E69349;
+}
 #contact article form input::-moz-placeholder, #contact article form textarea::-moz-placeholder {
-  color: #F5F0DC;
+  color: #314F2F;
 }
 #contact article form input::placeholder, #contact article form textarea::placeholder {
-  color: #F5F0DC;
+  color: #314F2F;
 }
 #contact article button {
   background-color: #ecae76;
@@ -387,28 +396,12 @@ footer li a {
   text-decoration: none;
 }
 
-#cart-items {
-  margin: 1rem 3rem;
-}
-
-.total {
-  border-top: 1px solid #E69349;
-  margin: 0 3rem;
-}
-.total h2 {
-  text-transform: lowercase;
-  width: -moz-fit-content;
-  width: fit-content;
-}
-
-.btn-buy {
-  margin: 1rem 3rem;
-  justify-content: flex-end;
-}
-
 @media (max-width: 1399.98px) {
   body {
-    font-size: 16px;
+    font-size: 18px;
+  }
+  #hero #hero-container {
+    height: 600px;
   }
 }
 @media (max-width: 1199.98px) {
@@ -460,13 +453,14 @@ footer li a {
   .mobile-nav-toggle[aria-expanded=true] {
     background-image: url(../img/x-solid.svg);
   }
-  #hero {
+  #hero #hero-container {
+    height: 620px;
     grid-template-columns: 1fr;
   }
-  #hero h1 {
+  #hero #hero-container h1 {
     max-width: 600px;
   }
-  #hero article:nth-child(2) {
+  #hero #hero-container article:nth-child(2) {
     height: 450px;
     transform: translateY(-15%);
   }

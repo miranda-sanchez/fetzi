@@ -15,9 +15,9 @@
       <button class="mobile-nav-toggle" aria-controls="primary-navigation" aria-expanded="false"><span class="sr-only">Menu</span></i></i></button>
       <nav>
         <ul id="primary-navigation" class="primary-navigation" data-visible="false">
+          <li><a href="#">Home</a></li>
           <li><a href="#products">Products</a></li>
           <li><a href="#slider">New arrivals</a></li>
-          <li><a href="#">About us</a></li>
           <li><a href="#contact">Contact</a></li>
           <li>
             <a href="cart.html"><i class="fa-solid fa-cart-shopping"></i></a></i>
@@ -33,13 +33,15 @@
     </header>
     <main>
       <section id="hero">
+        <div id="hero-container">
           <article>
-            <h1>The best wooden <strong>vintage furniture</strong> for you</h1>
-            <button>New arrivals</button>
+            <h1>The best wooden <strong>vintage furniture</strong><br> for you</h1>
+            <button><a href="#slider">New arrivals</a></button>
           </article>
           <article>
             <!--  Image added with SCSS -->
           </article>
+        </div>
       </section>
       <section id="characteristics">
         <h2>Have you been introduced?</h2>
@@ -77,6 +79,7 @@
       <section id="products">
         <h2>Products</h2>
         <p>Autumn Winter Collection</p>
+
         <article class="menu-products">
           <button id="btn-all">All</button>
           <button id="btn-lamps">Lamps</button>
@@ -107,15 +110,12 @@
           </p>
         <article>
           <form>
-            <label for="name">Name:</label>
+            <label for="name"></label>
             <input id="name" type="text" placeholder="Your name" required>
-          
-            <label for="email">Email:</label>
+            <label for="email"></label>
             <input id="email" type="email" placeholder="Your email" required>
-          
-            <label for="message">Message:</label>
+            <label for="message"></label>
             <textarea id="message" name="message" rows="10" placeholder="Your message" required></textarea>
-          
             <button type="submit">Submit</button>
           </form>
           <figure>
@@ -128,7 +128,6 @@
       <ul id="menu">
         <li><a href="#">Products</a></li>
           <li><a href="#slider">New arrivals</a></li>
-          <li><a href="#">About us</a></li>
           <li><a href="#contact">Contact</a></li>
       </ul>
       <ul id="social-media">
