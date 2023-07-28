@@ -43,6 +43,9 @@ button {
 button:hover {
   background-color: #ecae76;
 }
+button a:hover {
+  color: #314F2F;
+}
 
 h1 {
   text-transform: uppercase;
@@ -146,10 +149,9 @@ header nav .primary-navigation li a:hover:after {
   display: grid;
   justify-content: space-around;
   align-items: center;
-  grid-template-columns: 1fr 2fr;
-  height: 650px;
+  grid-template-columns: 1fr 3fr;
   max-width: 1600px;
-  margin: 0 2rem;
+  margin: 0 1.5rem;
   width: 100%;
 }
 #hero article:first-child h1 strong {
@@ -157,11 +159,12 @@ header nav .primary-navigation li a:hover:after {
   font-style: italic;
 }
 #hero article:nth-child(2) {
-  background-image: url("../img/hero-section.PNG");
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: right;
-  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#hero article:nth-child(2) img {
+  width: 100%;
 }
 
 #characteristics h2 {
@@ -262,10 +265,10 @@ header nav .primary-navigation li a:hover:after {
   display: grid;
   justify-content: center;
   align-items: center;
-  grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
   -moz-column-gap: 1rem;
        column-gap: 1rem;
-  row-gap: 1rem;
+  row-gap: 2rem;
   position: relative;
 }
 #products .product-container .product-section-title {
@@ -274,8 +277,9 @@ header nav .primary-navigation li a:hover:after {
   position: sticky;
   top: 0;
   left: 0;
-  font-size: 5rem;
+  font-size: 3rem;
   text-transform: lowercase;
+  margin: 1.5rem 0 1rem 0;
   opacity: 0.5;
   color: #E69349;
 }
@@ -283,8 +287,8 @@ header nav .primary-navigation li a:hover:after {
   text-align: center;
 }
 #products .product-container .product img {
-  width: 450px;
-  height: 450px;
+  width: 400px;
+  height: 400px;
   -o-object-fit: contain;
      object-fit: contain;
   padding: 2rem;
@@ -311,18 +315,16 @@ header nav .primary-navigation li a:hover:after {
 }
 
 #contact {
-  margin: 2rem;
+  margin: 1.5rem;
 }
 #contact p {
-  width: 70%;
+  max-width: 600px;
   margin: 0 auto;
 }
 #contact article {
   position: relative;
   margin: 0 auto;
-  width: 80%;
-  min-width: 450px;
-  max-width: 900px;
+  max-width: 700px;
 }
 #contact article form {
   border: 2px solid #314F2F;
@@ -332,12 +334,11 @@ header nav .primary-navigation li a:hover:after {
   flex-direction: column;
   border-radius: 0;
   padding: 1rem;
-  min-width: 400px;
   margin: 1rem 0;
 }
 #contact article form input, #contact article form textarea {
-  width: 60%;
-  min-width: 350px;
+  width: 90%;
+  max-width: 500px;
   margin: 1.5rem;
   padding: 0.5rem;
   background-color: transparent;
@@ -400,9 +401,6 @@ footer li a {
   body {
     font-size: 18px;
   }
-  #hero #hero-container {
-    height: 600px;
-  }
 }
 @media (max-width: 1199.98px) {
   #slider {
@@ -454,15 +452,7 @@ footer li a {
     background-image: url(../img/x-solid.svg);
   }
   #hero #hero-container {
-    height: 620px;
     grid-template-columns: 1fr;
-  }
-  #hero #hero-container h1 {
-    max-width: 600px;
-  }
-  #hero #hero-container article:nth-child(2) {
-    height: 450px;
-    transform: translateY(-15%);
   }
   #characteristics article {
     flex-direction: column;
@@ -481,5 +471,29 @@ footer li a {
     width: 70%;
     margin: 0;
     margin-top: 10px;
+  }
+}
+@media (max-width: 575.98px) {
+  #hero #hero-container article:first-child h1 {
+    font-size: 2.5rem;
+    line-height: 3rem;
+  }
+  #hero #hero-container article:first-child button {
+    margin-top: 0.5rem;
+    scale: 0.8;
+  }
+  /* #products {
+      .product-container{
+          grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      }
+      .product {
+          img {
+              width: 150px;
+              height: 150px;
+          }
+      }
+  } */
+  #contact article figure {
+    display: none;
   }
 }/*# sourceMappingURL=styles.css.map */

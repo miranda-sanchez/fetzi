@@ -48,6 +48,9 @@ button {
     &:hover {
         background-color: lighten(variable.$secondary-color, 10%);
     }
+    a:hover {
+        color: variable.$main-color;
+    }
 }
 
 h1 {
@@ -108,7 +111,6 @@ header {
             border-radius: 10px 0 0 10px;
             @include mixin.display(flex, center, center);
             li{
-                //margin-left: 5px;
                 list-style-type: none;
                 padding: 0 15px;
                 a {
@@ -150,12 +152,11 @@ header {
     @include mixin.display(flex, center, center);
     #hero-container{
         @include mixin.display(grid, space-around, center);
-        grid-template-columns: 1fr 2fr;
-        height: 650px;
+        grid-template-columns: 1fr 3fr;
         max-width: 1600px;
-        margin: 0 2rem;
-        width: 100%;}
-    
+        margin: 0 1.5rem;
+        width: 100%;
+    }
     article:first-child{
         h1{
             strong{
@@ -165,11 +166,10 @@ header {
         }
     }
     article:nth-child(2) {
-        background-image: url("../img/hero-section.PNG");
-        background-repeat: no-repeat;
-        background-size: contain;
-        background-position: right;
-        height: 100%;
+        @include mixin.display(flex, center, center);
+        img { 
+            width: 100%;
+        }
     } 
 }
 
@@ -266,9 +266,9 @@ header {
     }
     .product-container{
         @include mixin.display(grid, center, center);
-        grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
         column-gap: 1rem;
-        row-gap: 1rem;
+        row-gap: 2rem;
         position: relative;
         .product-section-title {
             grid-column: 1 / -1;
@@ -276,16 +276,17 @@ header {
             position: sticky;
             top: 0;
             left: 0;
-            font-size: 5rem;
+            font-size: 3rem;
             text-transform: lowercase;
+            margin: 1.5rem 0 1rem 0;
             opacity: 0.5;
             color: variable.$secondary-color;
-          }
+        }
         .product{
             text-align: center;
             img{
-                width: 450px;
-                height: 450px;
+                width: 400px;
+                height: 400px;
                 object-fit: contain;
                 padding: 2rem;
                 border-radius: 10px;
@@ -316,28 +317,25 @@ header {
 }
 
 #contact {
-    margin: 2rem;
+    margin: 1.5rem;
     p {
-        width: 70%;
+        max-width: 600px;
         margin: 0 auto;
     }
     article {
         position: relative;
         margin: 0 auto;
-        width: 80%;
-        min-width: 450px;
-        max-width: 900px;
+        max-width: 700px;
         form {
             border: 2px solid variable.$main-color;
             @include mixin.display(flex, flex-end, center);
             flex-direction: column;
             border-radius: 0;
             padding: 1rem;
-            min-width: 400px;
             margin: 1rem 0;
             input, textarea {
-                width: 60%;
-                min-width: 350px;
+                width: 90%;
+                max-width: 500px;
                 margin: 1.5rem;
                 padding: 0.5rem;
                 background-color: transparent;
@@ -399,17 +397,12 @@ footer {
     }
     #hero{
             #hero-container {
-            height: 600px;
+            //height: 600px;
         }
     }
 }
 
 @media (max-width: 1199.98px) {
-    #hero {
-        #hero-container {
-        //height: 500px;
-        }
-    }
     #slider {
         padding: 10rem 0;
         .wrapper {
@@ -468,16 +461,7 @@ footer {
     }
     #hero{
         #hero-container {
-            height: 620px;
-            grid-template-columns: 1fr;
-            h1{
-                max-width: 600px;
-            }
-            article:nth-child(2){
-                height: 450px;
-                transform: translateY(-15%);
-            }
-            
+            grid-template-columns: 1fr; 
         }
     }
     #characteristics {
@@ -502,4 +486,41 @@ footer {
         }
         }
     }
+}
+
+@media (max-width: 575.98px) {
+    #hero{
+        #hero-container {
+    
+            article:first-child {
+                h1 { 
+                    font-size: 2.5rem; 
+                    line-height: 2.5rem*1.2;
+                }
+                button {
+                    margin-top: 0.5rem;
+                    scale: 0.8;
+                }
+            }
+        }
+    }
+    /* #products {
+        .product-container{
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        }
+        .product {
+            img {
+                width: 150px;
+                height: 150px;
+            }
+        }
+    } */
+    #contact {
+        article {
+            figure {
+                display: none;
+            }
+        }
+    }
+
 }
