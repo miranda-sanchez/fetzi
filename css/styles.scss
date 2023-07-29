@@ -380,14 +380,18 @@ header {
 footer {
     border-top: 2px solid variable.$main-color;
     margin: 3rem 2rem 0 2rem;
-    @include mixin.display(flex, space-around, center);
-    li {
-        list-style-type: none;
-        padding: 0.5rem;
-        a{
-            text-decoration: none;
+    ul{ 
+        @include mixin.display(flex, center, center);
+        margin: 1rem 0;
+        li {
+            list-style-type: none;
+            padding: 0.5rem 1rem;
+            a{
+                text-decoration: none;
+            }
         }
     }
+    
 }
 
 @media (max-width: 1399.98px) {

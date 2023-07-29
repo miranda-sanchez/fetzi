@@ -384,15 +384,18 @@ header nav .primary-navigation li a:hover:after {
 footer {
   border-top: 2px solid #314F2F;
   margin: 3rem 2rem 0 2rem;
+}
+footer ul {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
+  margin: 1rem 0;
 }
-footer li {
+footer ul li {
   list-style-type: none;
-  padding: 0.5rem;
+  padding: 0.5rem 1rem;
 }
-footer li a {
+footer ul li a {
   text-decoration: none;
 }
 
